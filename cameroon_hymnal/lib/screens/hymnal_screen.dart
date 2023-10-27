@@ -28,18 +28,20 @@ class _HymnalScreenState extends State<HymnalScreen> {
       appBar: AppBar(
         title: Text(
           'Cameroon Hymnal',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: Theme.of(context).colorScheme.onPrimary,
+                fontSize: 25,
+              ),
         ),
         actions: [
           IconButton(
             onPressed: changeIcon,
             icon: Icon(
               icon,
+              color: Theme.of(context).colorScheme.onPrimary,
               size: 27,
             ),
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.onBackground,
           ),
           const SizedBox(
             width: 5,
