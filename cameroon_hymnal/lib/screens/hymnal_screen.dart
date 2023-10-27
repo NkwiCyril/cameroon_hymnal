@@ -1,11 +1,29 @@
-import 'package:cameroon_hymnal/widgets/hymn_tile.dart';
+import 'package:cameroon_hymnal/widgets/hymn_list_view.dart';
 import 'package:flutter/material.dart';
 
-class HymnalScreen extends StatelessWidget {
+class HymnalScreen extends StatefulWidget {
   const HymnalScreen({super.key});
 
   @override
+  State<HymnalScreen> createState() => _HymnalScreenState();
+}
+
+class _HymnalScreenState extends State<HymnalScreen> {
+  var icon = Icons.light_mode;
+  void changeIcon() {
+    setState(() {
+      if (icon == Icons.light_mode) {
+        icon = Icons.dark_mode;
+      } else {
+        icon = Icons.light_mode;
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // there is no need to use a List in this case due to the fact that
+    // most or all the data will be stored in the data file
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -16,16 +34,19 @@ class HymnalScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.dark_mode),
+            onPressed: changeIcon,
+            icon: Icon(
+              icon,
+              size: 27,
+            ),
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          const SizedBox(
+            width: 5,
           )
         ],
       ),
-      body: const Column(
-        children: [
-          HymnTile(),
-        ],
-      ),
+      body: const HymnListView(),
     );
   }
 }

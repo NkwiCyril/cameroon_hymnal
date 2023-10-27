@@ -5,10 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 final appScheme = ThemeData.from(
   useMaterial3: true,
   colorScheme: ColorScheme.fromSeed(
-    seedColor: const Color(0xFF443454),
+    seedColor: const Color.fromARGB(255, 48, 13, 174),
   ),
-  textTheme: GoogleFonts.aBeeZeeTextTheme()
+  textTheme: GoogleFonts.figtreeTextTheme()
 );
+
 void main() {
   runApp(
     MaterialApp(
