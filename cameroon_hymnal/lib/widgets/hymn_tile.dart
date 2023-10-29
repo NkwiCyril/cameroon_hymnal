@@ -25,7 +25,7 @@ class HymnTile extends StatelessWidget {
       );
     }
 
-    double space = 18;
+    double space = 10;
 
     if (index >= 9) {
       space = 10;
@@ -33,14 +33,20 @@ class HymnTile extends StatelessWidget {
 
     return ListTile(
       onTap: navigateToContent,
+      
       title: Row(
         children: [
           Text(
             '${index + 1}.',
           ),
-          SizedBox(width: space),
+          SizedBox(
+            width: space,
+          ),
           Text(
             hymnData[index].title,
+            style: const TextStyle(
+              fontSize: 18
+            ),
           ),
         ],
       ),

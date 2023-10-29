@@ -18,15 +18,15 @@ class HymnalContentScreen extends StatelessWidget {
           hymnData[index].title,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 fontSize: 22,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.secondary,
               ),
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 40.0,
-            horizontal: 30.0,
+            vertical: 40,
+            horizontal: 10,
           ),
           child: HymnContent(
             index: index,

@@ -2,7 +2,10 @@ import 'package:cameroon_hymnal/widgets/hymn_list_view.dart';
 import 'package:flutter/material.dart';
 
 class HymnalScreen extends StatefulWidget {
-  const HymnalScreen({super.key});
+  const HymnalScreen({super.key, });
+
+  // final Theme colorScheme;
+
 
   @override
   State<HymnalScreen> createState() => _HymnalScreenState();
@@ -29,7 +32,7 @@ class _HymnalScreenState extends State<HymnalScreen> {
         title: Text(
           'Cameroon Hymnal',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.secondary,
                 fontSize: 25,
               ),
         ),
@@ -38,7 +41,7 @@ class _HymnalScreenState extends State<HymnalScreen> {
             onPressed: changeIcon,
             icon: Icon(
               icon,
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.secondary,
               size: 27,
             ),
             color: Theme.of(context).colorScheme.onBackground,

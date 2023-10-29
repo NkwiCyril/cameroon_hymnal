@@ -11,46 +11,44 @@ class HymnContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
+          fontSize: 21,
+        );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           hymnData[index].chorus,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyLarge!.copyWith(
-                fontWeight: FontWeight.w500,
-                fontSize: 23,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                fontSize: 21,
               ),
         ),
-        const SizedBox(
-          height: 50,
+        ...hymnData[index].antiphon!.map(
+          (antiphon) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 8.0,
+              ),
+              child: Text(
+                antiphon,
+                style: textStyle,
+              ),
+            );
+          },
         ),
-
-        // IN ORDER TO DISPLAY THE List OF VERSES, I COULD USE TO CONCEPT OF THE for-in loop
-        // or THE map() function
-
-        // ...hymnData[index].verses.map((verse) {
-        //   return Text(
-        //   verse,
-        //     style: Theme.of(
-        //       context,
-        //     ).textTheme.bodyLarge!.copyWith(
-        //           fontWeight: FontWeight.w500,
-        //           fontSize: 23,
-        //         ),
-        //   );
-        // }),
-
+        const SizedBox(
+          height: 35,
+        ),
         for (final verse in hymnData[index].verses)
-          Text(
-            verse,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyLarge!.copyWith(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 23,
-                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 10.0,
+            ),
+            child: Text(
+              'Number.\n$verse',
+              style: textStyle,
+            ),
           )
       ],
     );
