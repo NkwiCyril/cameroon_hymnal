@@ -21,6 +21,14 @@ class HymnalContentScreen extends StatelessWidget {
                 color: Theme.of(context).colorScheme.secondary,
               ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.star,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(

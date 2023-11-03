@@ -26,30 +26,20 @@ class HymnContent extends StatelessWidget {
         ),
         ...hymnData[index].antiphon!.map(
           (antiphon) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 8.0,
-              ),
-              child: Text(
-                antiphon,
-                style: textStyle,
-              ),
+            return Text(
+              antiphon,
+              style: textStyle,
             );
           },
         ),
         const SizedBox(
-          height: 35,
+          height: 19,
         ),
         for (final verse in hymnData[index].verses)
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10.0,
-            ),
-            child: Text(
-              'Number.\n$verse',
-              style: textStyle,
-            ),
-          )
+          Text(
+            verse,
+            style: textStyle,
+          ),
       ],
     );
   }

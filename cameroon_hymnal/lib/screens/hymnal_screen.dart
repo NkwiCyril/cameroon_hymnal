@@ -32,7 +32,7 @@ class _HymnalScreenState extends State<HymnalScreen> {
         title: Text(
           'Cameroon Hymnal',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
                 fontSize: 25,
               ),
         ),
@@ -41,7 +41,7 @@ class _HymnalScreenState extends State<HymnalScreen> {
             onPressed: changeIcon,
             icon: Icon(
               icon,
-              color: Theme.of(context).colorScheme.secondary,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
               size: 27,
             ),
             color: Theme.of(context).colorScheme.onBackground,
