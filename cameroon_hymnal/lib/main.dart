@@ -50,10 +50,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-  Widget currentScreen = const HymnalScreen();
-  if (currentScreenIndex == 1){
-    currentScreen = const FavoriteScreen();
-  }
+    Widget currentScreen = const HymnalScreen();
+    if (currentScreenIndex == 1) {
+      currentScreen = const FavoriteScreen();
+    }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appTheme,

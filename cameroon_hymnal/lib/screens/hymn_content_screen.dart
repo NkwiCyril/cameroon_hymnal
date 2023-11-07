@@ -1,4 +1,5 @@
 import 'package:cameroon_hymnal/data/hymn_data.dart';
+import 'package:cameroon_hymnal/model/hymn_model.dart';
 import 'package:cameroon_hymnal/widgets/hymn_content.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,32 @@ class HymnalContentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Hymn> favoriteMeals = [];
+
+    void displayMessage(String message) {
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          dismissDirection: DismissDirection.up,
+          duration: const Duration(seconds: 2),
+          
+        ),
+      );
+    }
+
+    void addToFavorite(int index) {
+      final isExisting = favoriteMeals.contains(hymnData[index]);
+      if (isExisting) {
+        favoriteMeals.remove(hymnData[index]);
+        displayMessage('Hymn removed from favorite hymns.');
+      }
+      if (!isExisting) {
+        favoriteMeals.add(hymnData[index]);
+        displayMessage('Hymn added to favorite hymns.');
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -23,7 +50,9 @@ class HymnalContentScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              addToFavorite(index);
+            },
             icon: const Icon(
               Icons.star,
             ),

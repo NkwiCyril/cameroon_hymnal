@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
-    Widget currentScreenContent =  Center(
+    Widget screenContent = Center(
       child: Text(
         'No Favorites selected.',
         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-          color: Theme.of(context).colorScheme.tertiary,
-          fontSize: 19
-        ),
+            color: Theme.of(context).colorScheme.onBackground, fontSize: 19),
       ),
     );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -23,7 +21,7 @@ class FavoriteScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: currentScreenContent,
+      body: screenContent,
     );
   }
 }
