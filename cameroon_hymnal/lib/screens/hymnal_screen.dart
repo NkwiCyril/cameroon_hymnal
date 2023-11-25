@@ -2,9 +2,7 @@ import 'package:cameroon_hymnal/widgets/hymn_list_view.dart';
 import 'package:flutter/material.dart';
 
 class HymnalScreen extends StatefulWidget {
-  const HymnalScreen({super.key, });
-
-  // final Theme colorScheme;
+  const HymnalScreen({super.key});
 
 
   @override

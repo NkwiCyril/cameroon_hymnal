@@ -12,6 +12,7 @@ class HymnTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     void navigateToContent() {
       Navigator.push(
         context,
@@ -19,6 +20,7 @@ class HymnTile extends StatelessWidget {
           builder: ((context) {
             return HymnalContentScreen(
               index: index,
+              hymn: hymnData[index],
             );
           }),
         ),

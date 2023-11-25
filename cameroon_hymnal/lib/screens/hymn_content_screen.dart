@@ -7,10 +7,11 @@ class HymnalContentScreen extends StatelessWidget {
   const HymnalContentScreen({
     super.key,
     required this.index,
+    required this.hymn
   });
 
   final int index;
-
+  final Hymn hymn;
   @override
   Widget build(BuildContext context) {
     final List<Hymn> favoriteMeals = [];
@@ -20,23 +21,22 @@ class HymnalContentScreen extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(message),
-          dismissDirection: DismissDirection.up,
-          duration: const Duration(seconds: 2),
-          
         ),
       );
     }
 
-    void addToFavorite(int index) {
-      final isExisting = favoriteMeals.contains(hymnData[index]);
+    void addToFavorite() {
+      final isExisting = favoriteMeals.contains(hymn);
       if (isExisting) {
-        favoriteMeals.remove(hymnData[index]);
+        favoriteMeals.remove(hymn);
         displayMessage('Hymn removed from favorite hymns.');
       }
       if (!isExisting) {
-        favoriteMeals.add(hymnData[index]);
+        favoriteMeals.add(hymn);
         displayMessage('Hymn added to favorite hymns.');
+        print(favoriteMeals[index].title);
       }
+
     }
 
     return Scaffold(
@@ -50,9 +50,7 @@ class HymnalContentScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              addToFavorite(index);
-            },
+            onPressed: addToFavorite,
             icon: const Icon(
               Icons.star,
             ),
